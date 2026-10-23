@@ -1,23 +1,61 @@
-AeroGuard: Comparative Analysis of Regression and Ensemble Learning Algorithms for Predicting Aircraft Engine Remaining Useful Life
-1. Aim
-The aim of this study is to develop and compare different regression algorithms for predicting the Remaining Useful Life (RUL) of aircraft engines using the NASA C-MAPSS Turbofan Engine Degradation Simulation Dataset. The study focuses on understanding how different machine learning techniques perform in estimating engine degradation and how their predictions can support better maintenance planning.
-2. Problem Statement
-Aircraft engines experience gradual wear and degradation during operation. If this degradation is not identified in time, it can lead to unexpected failures, increased maintenance costs, and safety risks. Therefore, predicting the remaining useful life of an engine is important for planning maintenance before a failure occurs. This project investigates how different regression and ensemble learning algorithms can be used to estimate the remaining useful life of aircraft engines and compares their performance to identify suitable prediction models.
-3. Literature Review
-The literature review will examine at least five recent research papers related to aircraft engine degradation, remaining useful life prediction, and regression-based predictive maintenance. The selected studies will be analyzed based on their objectives, methodologies, major findings, and limitations. This review will help establish the importance of predictive maintenance and identify how the proposed study contributes by comparing multiple regression and ensemble learning algorithms using a common dataset and evaluation framework.
-4. Objectives
-The main objectives of this study are to implement and evaluate different regression algorithms for predicting aircraft engine remaining useful life, compare their performance using appropriate evaluation metrics, and identify the models that provide the most accurate predictions. The study also aims to understand the strengths and limitations of individual regression models and ensemble learning techniques in the context of predictive maintenance.
-5. Methodology
-The study will use the NASA C-MAPSS FD004 dataset, which contains simulated aircraft engine operating conditions and sensor measurements collected over multiple operating cycles. The dataset will first be explored to understand its structure, identify missing or irrelevant values, and examine sensor behaviour. The Remaining Useful Life (RUL) value for each training observation will be calculated using the difference between the engine's final recorded training cycle and its current cycle. Relevant features will then be selected, and suitable preprocessing techniques will be applied. The data will be divided into training and validation sets based on engine IDs to reduce data leakage. The following algorithms will be implemented and compared: Simple Linear Regression, Multiple Linear Regression, Ridge Regression, Lasso Regression, Generalized Linear Model (GLM), Support Vector Regression (SVR), Bagging Regressor, AdaBoost Regressor, Gradient Boosting Regressor, and XGBoost Regressor. Model performance will be evaluated using Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and the coefficient of determination (R²). The results will be presented using tables and visualizations to make the comparison clear.
-6. Implementation Tools
-The project will be implemented in Python using Jupyter Notebook. Libraries such as Pandas and NumPy will be used for data handling and numerical operations, Matplotlib and Seaborn for data visualization, Scikit-learn for implementing and evaluating regression models, and XGBoost for gradient-boosting-based prediction. The NASA C-MAPSS dataset will serve as the primary data source.
+# AeroGuard: Aircraft Engine Remaining Useful Life Prediction
 
-Dataset: https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip
+## Project Overview
 
-Official NASA repository: https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/
-7. Expected Results and Analysis
-The performance of all ten regression algorithms will be compared using MAE, RMSE, and R². Lower MAE and RMSE values indicate smaller prediction errors, while a higher R² generally indicates that the model explains more of the variation in the target values. Tables and graphs will be used to present the results and identify differences between individual regression models and ensemble learning techniques. The final conclusions will be based on the actual experimental results obtained from the implementation rather than assumed performance values.
-8. Conclusion
-This study aims to demonstrate how regression and ensemble learning algorithms can be applied to predict the remaining useful life of aircraft engines. By evaluating multiple models on the same dataset using consistent performance metrics, the project will provide a comparative understanding of their prediction capabilities. The findings may help identify suitable machine learning approaches for predictive maintenance and support maintenance planning by estimating when an engine may require attention.
-9. Future Scope
-The project can be extended by incorporating time-series features, experimenting with advanced deep learning models, and estimating the uncertainty associated with RUL predictions. Future work may also investigate the effect of sensor failures, changing operating conditions, and real-world engine data on prediction accuracy. These improvements could make the system more practical for real-world predictive maintenance applications.
+AeroGuard is a machine learning project focused on predicting the Remaining Useful Life (RUL) of aircraft engines using regression and ensemble learning algorithms. The project uses the NASA C-MAPSS Turbofan Engine Degradation Simulation Dataset to study engine degradation and estimate the number of operating cycles remaining before an engine reaches the end of its useful life. The study compares ten regression algorithms using a common dataset and evaluation framework to understand their predictive performance and suitability for predictive maintenance.
+
+## Problem Statement
+
+Aircraft engines undergo gradual wear and degradation during operation. If this degradation is not detected in time, it can result in unexpected failures, increased maintenance costs, and safety risks. Predicting the remaining useful life of an engine helps estimate when maintenance may be required and supports more effective maintenance planning. AeroGuard investigates how different regression and ensemble learning techniques can estimate engine RUL and identifies suitable models based on their actual prediction performance.
+
+## Objectives
+
+The primary objective of AeroGuard is to implement and evaluate multiple regression algorithms for predicting the remaining useful life of aircraft engines. The project aims to compare their performance using appropriate regression metrics, identify models that provide accurate predictions, and understand the strengths and limitations of individual regression methods and ensemble learning techniques in predictive maintenance.
+
+## Dataset
+
+The project uses the NASA C-MAPSS Turbofan Engine Degradation Simulation Dataset, specifically the FD004 subset. This dataset contains simulated aircraft engine operating conditions and sensor measurements collected over multiple operating cycles. It provides information that can be used to study engine degradation patterns and develop machine learning models for remaining useful life prediction.
+
+The dataset can be accessed through the following sources:
+
+**Dataset Download:** [NASA C-MAPSS Turbofan Engine Degradation Simulation Dataset](https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip)
+
+**Official NASA Repository:** [NASA Prognostics Center of Excellence Data Set Repository](https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/)
+
+## Methodology
+
+The methodology begins with loading and exploring the FD004 dataset to understand its structure, examine sensor measurements, identify missing or irrelevant values, and investigate engine degradation patterns. The Remaining Useful Life value for each training observation is calculated using the difference between the engine's final recorded training cycle and its current operating cycle. Relevant sensor and operating-condition features are then selected, and appropriate preprocessing techniques are applied.
+
+The dataset is divided into training and validation sets based on engine IDs to reduce data leakage and provide a more reliable evaluation of model performance. Ten regression algorithms are implemented and evaluated using a consistent experimental framework. Their predictions are compared against the actual RUL values, and the results are presented using evaluation tables and visualizations.
+
+## Machine Learning Algorithms
+
+AeroGuard evaluates ten regression algorithms to compare different approaches to remaining useful life prediction. Simple Linear Regression establishes a baseline by modelling the relationship between an input feature and RUL, while Multiple Linear Regression uses multiple input features to estimate the target value. Ridge Regression applies regularization to reduce the effect of large coefficients, and Lasso Regression uses regularization that can also reduce less useful feature coefficients to zero.
+
+The Generalized Linear Model provides a flexible regression framework based on a specified distribution and link function. Support Vector Regression estimates continuous target values by learning a function that limits prediction errors within a defined tolerance.
+
+The ensemble learning algorithms include Bagging Regressor, which combines predictions from multiple models to improve stability; AdaBoost Regressor, which sequentially emphasizes observations that are difficult to predict; Gradient Boosting Regressor, which builds an additive model by correcting previous prediction errors; and XGBoost Regressor, which implements an optimized gradient-boosting approach for regression tasks.
+
+## Implementation Tools and Technologies
+
+The project is implemented in Python using Jupyter Notebook. Pandas and NumPy are used for dataset handling, data manipulation, and numerical computations. Matplotlib and Seaborn support exploratory data analysis and visualization. Scikit-learn provides the regression algorithms, preprocessing utilities, and evaluation metrics, while XGBoost is used to implement the XGBoost regression model. The NASA C-MAPSS dataset serves as the primary data source for training and evaluating the models.
+
+## Evaluation Metrics
+
+The performance of the regression algorithms is evaluated using Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and the coefficient of determination (R²). MAE measures the average absolute difference between predicted and actual RUL values, while RMSE gives greater weight to larger prediction errors. The R² score measures how well a model explains the variation in the target values relative to a baseline.
+
+Lower MAE and RMSE values generally indicate more accurate predictions, while a higher R² score generally indicates better explanatory performance. These metrics are used together to compare the prediction accuracy and limitations of the ten regression algorithms.
+
+## Expected Results and Analysis
+
+The experimental analysis compares all ten regression algorithms using MAE, RMSE, and R². Tables and visualizations are used to present the results and highlight differences between individual regression models and ensemble learning techniques. The analysis focuses on identifying which algorithms provide lower prediction errors and more reliable RUL estimates on the validation data.
+
+The final conclusions are based on the actual experimental results rather than assumed performance values. The selected model is assessed according to its prediction accuracy and suitability for aircraft engine predictive maintenance.
+
+## Conclusion
+
+AeroGuard demonstrates how regression and ensemble learning algorithms can be applied to estimate the remaining useful life of aircraft engines using simulated degradation data. By implementing ten regression models and evaluating them using consistent metrics, the project provides a comparative understanding of their predictive capabilities. The findings can help identify suitable machine learning approaches for estimating engine degradation and supporting maintenance planning before potential failures occur.
+
+## Future Scope
+
+Future development may incorporate time-series features to capture changes in sensor measurements across operating cycles and explore advanced deep learning architectures for RUL prediction. The project may also be extended to estimate prediction uncertainty, investigate the impact of sensor failures and changing operating conditions, and evaluate model generalization using real-world engine data. These improvements could help make AeroGuard more practical for predictive maintenance applications in aviation.
